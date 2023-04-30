@@ -4,13 +4,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Hugo Theme MemE</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2023-04-30T22:01:32&#43;00:00</updated>
-    <id>https://yz7043.github.io/mypage/</id>
-    <link rel="alternate" type="text/html" href="https://yz7043.github.io/mypage/" />
-    <link rel="self" type="application/atom&#43;xml" href="https://yz7043.github.io/mypage/atom.xml" />
+    <updated>2023-04-30T22:36:46&#43;00:00</updated>
+    <id>https://yz7043.github.io/andyzhu/</id>
+    <link rel="alternate" type="text/html" href="https://yz7043.github.io/andyzhu/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://yz7043.github.io/andyzhu/atom.xml" />
     <author>
             <name>reuixiy</name>
-            <uri>https://yz7043.github.io/mypage/</uri>
+            <uri>https://yz7043.github.io/andyzhu/</uri>
             
                 <email>reuixiy@gmail.com</email>
             </author>
@@ -18,9 +18,9 @@
     <generator uri="https://gohugo.io/" version="0.110.0">Hugo</generator>
         <entry>
             <title type="text">Intro</title>
-            <link rel="alternate" type="text/html" href="https://yz7043.github.io/mypage/posts/intro/" />
-            <id>https://yz7043.github.io/mypage/posts/intro/</id>
-            <updated>2023-04-30T22:01:29&#43;00:00</updated>
+            <link rel="alternate" type="text/html" href="https://yz7043.github.io/andyzhu/posts/intro/" />
+            <id>https://yz7043.github.io/andyzhu/posts/intro/</id>
+            <updated>2023-04-30T22:36:44&#43;00:00</updated>
             <published>2023-04-30T17:42:47-04:00</published>
             <author>
                     <name>reuixiy</name>
