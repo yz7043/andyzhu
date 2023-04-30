@@ -23,10 +23,34 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Sun, 30 Apr 2023 21:48:56 &#43;0000</lastBuildDate>
+        <lastBuildDate>Sun, 30 Apr 2023 22:01:32 &#43;0000</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://yz7043.github.io/mypage/rss.xml" />
         
+        
+            <item>
+                <title>Intro</title>
+                <link>https://yz7043.github.io/mypage/posts/intro/</link>
+                <guid isPermaLink="true">https://yz7043.github.io/mypage/posts/intro/</guid>
+                <pubDate>Sun, 30 Apr 2023 17:42:47 -0400</pubDate>
+                
+                    <author>reuixiy@gmail.com (reuixiy)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
     </channel>
 </rss>
