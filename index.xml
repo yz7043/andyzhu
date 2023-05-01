@@ -5,7 +5,19 @@
     <link>https://yz7043.github.io/andyzhu/</link>
     <description>Recent content on Andy Zhu&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 May 2023 11:56:32 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 May 2023 16:11:54 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL_interview_prep</title>
+      <link>https://yz7043.github.io/andyzhu/posts/sql_interview_prep/</link>
+      <pubDate>Mon, 01 May 2023 16:11:54 -0400</pubDate>
+      
+      <guid>https://yz7043.github.io/andyzhu/posts/sql_interview_prep/</guid>
+      <description>Introduction This is a notes summarizing all frequently asked SQL questions.
+Content 1. What is the difference between MySQL and SQL They are related while they are different things.
+The primary difference is that SQL (Standard Query Language) is an language used to create, modify, query the database.
+However, MySQL is a relational database management system that uses SQL. It&amp;rsquo;s a database software that allows users to create, modify and query a databse.</description>
+    </item>
+    
     <item>
       <title>UE5_basic</title>
       <link>https://yz7043.github.io/andyzhu/posts/ue5_basic/</link>
@@ -13,8 +25,12 @@
       
       <guid>https://yz7043.github.io/andyzhu/posts/ue5_basic/</guid>
       <description>Introduction I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
-Content 1. How to get root component Once we have a base component says a PAWN. We usually want to add some mesh to this component. How can we do that?
-// Assume we have a MyPawn.h file UCLASS() class LEARN_API AMyPawn : public APawn{ /* some functions and data members inside this class*/ } // Then in MyPawn.</description>
+Outlines Axis Map
+Root Component
+Auto Possess
+Pawn Movement
+Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
+Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &amp;lsquo;W&amp;rsquo; key.</description>
     </item>
     
   </channel>

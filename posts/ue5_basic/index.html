@@ -14,13 +14,21 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="UE5_basic"/>
 <meta name="twitter:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
-Content 1. How to get root component Once we have a base component says a PAWN. We usually want to add some mesh to this component. How can we do that?
-// Assume we have a MyPawn.h file UCLASS() class LEARN_API AMyPawn : public APawn{ /* some functions and data members inside this class*/ } // Then in MyPawn."/>
+Outlines Axis Map
+Root Component
+Auto Possess
+Pawn Movement
+Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
+Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key."/>
 
     <meta property="og:title" content="UE5_basic" />
 <meta property="og:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
-Content 1. How to get root component Once we have a base component says a PAWN. We usually want to add some mesh to this component. How can we do that?
-// Assume we have a MyPawn.h file UCLASS() class LEARN_API AMyPawn : public APawn{ /* some functions and data members inside this class*/ } // Then in MyPawn." />
+Outlines Axis Map
+Root Component
+Auto Possess
+Pawn Movement
+Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
+Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yz7043.github.io/andyzhu/posts/ue5_basic/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-01T11:56:32-04:00" />
@@ -40,6 +48,9 @@ Content 1. How to get root component Once we have a base component says a PAWN. 
              - 
           
           <a class="app-header-menu-item" href="/andyzhu/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/andyzhu/posts/">Post</a>
       </nav>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <div class="app-header-social">
@@ -78,15 +89,54 @@ Content 1. How to get root component Once we have a base component says a PAWN. 
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          3 min read
         </div>
       </div>
     </header>
     <div class="post-content">
       <h1 id="introduction">Introduction</h1>
 <p>I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.</p>
+<h1 id="outlines">Outlines</h1>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#AxisMap">Axis Map</a></p>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#RootComponent">Root Component</a></p>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#AutoPossess">Auto Possess</a></p>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#PawnMovement">Pawn Movement</a></p>
 <h1 id="content">Content</h1>
-<h2 id="1-how-to-get-root-component">1. How to get root component</h2>
+<h2 id="AxisMap">Axis Map</h2>
+<ol>
+<li>
+<p>Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame</p>
+<ol>
+<li>Inside <code>project setting</code> we open <code>Input</code>tab.</li>
+<li>Inside <code>Input</code>, we choose <code>Bindings</code></li>
+<li>We can add one function name, for example, <code>MoveForward</code></li>
+<li>Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key.</li>
+</ol>
+</li>
+<li>
+<p>We need to add corresponding functions in our PAWN class</p>
+<ol>
+<li>
+<p>In the header file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">MoveForward</span>(<span style="color:#66d9ef">float</span> Val);
+</span></span></code></pre></div></li>
+<li>
+<p>In the Cpp file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> MyPawn<span style="color:#f92672">::</span>MoveForward(<span style="color:#66d9ef">float</span> Val){
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/*Detail codes*/</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> MyPawn<span style="color:#f92672">::</span>SetupPlayerInputComponent(UInputComponent<span style="color:#f92672">*</span> PlayerInputCmp){
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// This a virtual function created by Pawn class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// It is used to setup user input binding
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Param: AxisName, Object Ptr, Callback Function Ptr
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	PlayerInputCmp<span style="color:#f92672">-&gt;</span>BindAxis(FName(<span style="color:#e6db74">&#34;MoveForward&#34;</span>), <span style="color:#66d9ef">this</span>, <span style="color:#f92672">&amp;</span>MyPawn<span style="color:#f92672">::</span>MoveForward);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
+<h2 id="RootComponent">How to get root component</h2>
 <p>Once we have a base component says a <strong>PAWN</strong>. We usually want to add some mesh to this component. How can we do that?</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// Assume we have a MyPawn.h file 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UCLASS()
@@ -107,7 +157,44 @@ Content 1. How to get root component Once we have a base component says a PAWN. 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// We can use Capsule here since we know it is our root component
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    RobotMesh<span style="color:#f92672">-&gt;</span>SetupAttachment(GetRootComponent());
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="AutoPossess">What is auto possess of a PAWN class</h2>
+<ol>
+<li>You can do it in the UE editor
+When we place one pawn blueprint in our world, we are able to control this pawn as our player. How do we configure this?
+<ol>
+<li>First we need to select the pawn object from outliner</li>
+<li>You may find a <code>Details</code> tab sitting besides <code>World Settings</code>. Click that <code>Details</code> tab.</li>
+<li>Then search for <code>auto possess</code> and change the <code>auto possess player</code> to your player</li>
+</ol>
+</li>
+<li>You can also do it in your C++ code
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>AutoPossessPlayer <span style="color:#f92672">=</span> EAutoReceiveInput<span style="color:#f92672">::</span>Player0;
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="PawnMovement">Inplement Pawn Movement</h2>
+<ol>
+<li>
+<p>Move Forward</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> MyPawn<span style="color:#f92672">::</span>MoveForward(<span style="color:#66d9ef">float</span> Value){
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// This function can handle move forward or backward based on whether Value &gt; 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// Check if Controller is valid and Value &gt; 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Controller is an intrinsic variable for Pawn class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>((Controller <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) <span style="color:#f92672">&amp;&amp;</span> Value <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0.0</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Get Forward direction
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    FVector FW <span style="color:#f92672">=</span> GetActorForwardVector();
+</span></span><span style="display:flex;"><span>    AddMovement(FW, Value);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>Add movement component in our Pawn Blueprint</p>
+<ol>
+<li>Go to MyPawn blueprint</li>
+<li>Click + button located at the upper left corner and add a <code>FloatingPawnMovement</code></li>
+</ol>
+</li>
+</ol>
+
     </div>
     <div class="post-footer">
       
