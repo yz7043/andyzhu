@@ -3,80 +3,60 @@
 staticDir = ['static']
 baseURL = "https://yz7043.github.io/andyzhu/"
 title = "Andy Zhu's Blog"
-languageCode = "en-us"
-theme = "blackburn"
-author = "Andy Zhu"
-copyright = "&copy; 2016. All rights reserved."
-canonifyurls = true
-paginate = 10
 
-[indexes]
-  tag = "tags"
-  topic = "topics"
-
-[params]
-  # Shown in the home page
-  subtitle = "A Hugo Theme"
-  brand = "Blackburn"
-  googleAnalytics = "Your Google Analytics tracking ID"
-  disqus = "Your Disqus shortname"
-  # CSS name for highlight.js
-  highlightjs = "androidstudio"
-  dateFormat = "02 Jan 2006, 15:04"
+theme = "m10c"
+paginate = 8
 
 [menu]
-  # Shown in the side menu.
   [[menu.main]]
-    name = "Home"
-    pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 1
     identifier = "home"
+    name = "Home"
     url = "/"
+    weight = 1
   [[menu.main]]
-    name = "Posts"
-    pre = "<i class='fa fa-list fa-fw'></i>"
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
     weight = 2
-    identifier = "post"
-    url = "/post/"
   [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 3
     identifier = "about"
+    name = "About"
     url = "/about/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
+    weight = 3
 
-[social]
-  # Link your social networking accouns to the side menu
-  # by entering your username or ID.
-  twitter="*"
-  # gnusocial="*"
-  facebook="*"
-  # weibo="*"
-  # tumblr="*"
-  instagram="*"
-  # flickr="*"
-  # photo500px="*"
-  # pinterest="*"
-  # youtube="*"
-  # vimeo="*"
-  # vine="*"
-  # slideshare="*"
-  linkedin="*"
-  # xing="*"
-  # reddit="*"
-  # hackernews="*"
-  github="yoshiharuyamashita"
-  # gitlab="*"
-  # bitbucket="*"
-  stackoverflow="*"
-  # serverfault="*"
-  # steam="*"
-  # mobygames="*"
-  # lastfm="*"
-  # discogs="*"
-  # keybase="*"
+[params]
+  author = "John Doe"
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  menu_item_separator = " - "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/gohugoio"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/gohugoio"
+
+  # Default theme
+  #[params.style]
+  #  darkestColor = "#242930"
+  #  darkColor = "#353b43"
+  #  lightColor = "#afbac4"
+  #  lightestColor = "#ffffff"
+  #  primaryColor = "#57cc8a"
+
+  # Green theme
+  #[params.style]
+  #  darkestColor = "#315659"
+  #  darkColor = "#253031"
+  #  lightColor = "#96a879"
+  #  lightestColor = "#fff"
+  #  primaryColor = "#dad865"
+
+  # Red theme
+  #[params.style]
+  #  darkestColor = "#d35050"
+  #  darkColor = "#212121"
+  #  lightColor = "#d6d6d6"
+  #  lightestColor = "#d3d3d3"
+  #  primaryColor = "#ffffff"
