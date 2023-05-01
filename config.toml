@@ -3,86 +3,59 @@
 staticDir = ['static']
 baseURL = "https://yz7043.github.io/andyzhu/"
 title = "Andy Zhu's Blog"
-theme = "gokarna"
-languageCode = "en"
-defaultContentLanguage = "en"
-enableEmoji = true
-enableRobotsTXT = true
-
-# Choose one of emacs, trac or perldoc
-pygmentsStyle = "monokai"
-
-[params]
-  footer = "Andy Zhu"
-  description = "NYU | HKUST | NetEase Games | Tech | Learning"
-  # avatarURL = "/images/avatar.webp"
-  avatarURL = "IMG_2735.png"
-  AvatarAltText = "avatar"
-  avatarSize = "size-m"
-  customHeadHTML = """
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          // customised options
-          // • auto-render specific keys, e.g.:
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-          ],
-          // • rendering keys, e.g.:
-          throwOnError : false
-        });
-      });
-    </script>
-  """
-  socialIcons = [
-    {name = "linkedin", url = "https://www.linkedin.com/in/yuxiangzhu57/"},
-    {name = "email", url = "mailto:zyxfirst@gmail.com"},
-    {name = "github", url = "https://github.com/yz7043"}
-  ]
-  metaKeywords = ["blog", "gokarna", "hugo"]
+theme = "m10c"
+paginate = 8
 
 [menu]
   [[menu.main]]
+    identifier = "home"
     name = "Home"
-    pre = "<span data-feather='home'></span>"
     url = "/"
     weight = 1
-
   [[menu.main]]
-    name = "Posts"
-    pre = "<span data-feather='book'></span>"
-    url = "/posts/"
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
     weight = 2
-
   [[menu.main]]
-    name = "Projects"
-    pre = "<span data-feather='code'></span>"
-    url = "/projects/"
+    identifier = "about"
+    name = "About"
+    url = "/about/"
     weight = 3
-  [[menu.main]]
-    name = "GameServer"
-    pre = "<span data-feather='code'></span>"
-    url = "/projects/"
-    weight = 3
-  ## [[menu.main]]
-  #  name = "Tags"
-  #  pre = "<span data-feather='tag'></span>"
-  #  url = "/tags/"
-  #  weight = 4
 
-  [[menu.main]]
-    identifier = "github"
-    pre = "<span data-feather='github'></span>"
-    url = "https://github.com/yz7043"
-    weight = 5
+[params]
+  author = "John Doe"
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  menu_item_separator = " - "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/gohugoio"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/gohugoio"
 
-[markup]
-  [markup.tableOfContents]
-    startLevel = 1
-    endLevel = 4
-    ordered = false
+  # Default theme
+  #[params.style]
+  #  darkestColor = "#242930"
+  #  darkColor = "#353b43"
+  #  lightColor = "#afbac4"
+  #  lightestColor = "#ffffff"
+  #  primaryColor = "#57cc8a"
+
+  # Green theme
+  #[params.style]
+  #  darkestColor = "#315659"
+  #  darkColor = "#253031"
+  #  lightColor = "#96a879"
+  #  lightestColor = "#fff"
+  #  primaryColor = "#dad865"
+
+  # Red theme
+  #[params.style]
+  #  darkestColor = "#d35050"
+  #  darkColor = "#212121"
+  #  lightColor = "#d6d6d6"
+  #  lightestColor = "#d3d3d3"
+  #  primaryColor = "#ffffff"
