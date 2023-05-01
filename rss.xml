@@ -8,9 +8,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Hugo Theme MemE</title>
-        <link>https://yz7043.github.io/andyzhu/</link>
+        <link>https://yz7043.github.io/mypage/</link>
         <description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description>
-        <generator>Hugo 0.110.0 https://gohugo.io/</generator>
+        <generator>Hugo 0.109.0 https://gohugo.io/</generator>
         
             <language>en</language>
         
@@ -23,34 +23,10 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Sun, 30 Apr 2023 22:36:46 &#43;0000</lastBuildDate>
+        <lastBuildDate>Sun, 30 Apr 2023 17:43:10 -0400</lastBuildDate>
         
-            <atom:link rel="self" type="application/rss&#43;xml" href="https://yz7043.github.io/andyzhu/rss.xml" />
+            <atom:link rel="self" type="application/rss&#43;xml" href="https://yz7043.github.io/mypage/rss.xml" />
         
-        
-            <item>
-                <title>Intro</title>
-                <link>https://yz7043.github.io/andyzhu/posts/intro/</link>
-                <guid isPermaLink="true">https://yz7043.github.io/andyzhu/posts/intro/</guid>
-                <pubDate>Sun, 30 Apr 2023 17:42:47 -0400</pubDate>
-                
-                    <author>reuixiy@gmail.com (reuixiy)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
-                
-                    <description></description>
-                
-                
-                
-                
-                
-                    
-                        
-                    
-                        
-                    
-                
-            </item>
         
     </channel>
 </rss>
