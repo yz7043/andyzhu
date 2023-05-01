@@ -4,6 +4,18 @@
     <title>Andy Zhu&#39;s Blog</title>
     <link>https://yz7043.github.io/andyzhu/</link>
     <description>Recent content on Andy Zhu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 May 2023 11:56:32 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UE5_basic</title>
+      <link>https://yz7043.github.io/andyzhu/posts/ue5_basic/</link>
+      <pubDate>Mon, 01 May 2023 11:56:32 -0400</pubDate>
+      
+      <guid>https://yz7043.github.io/andyzhu/posts/ue5_basic/</guid>
+      <description>Introduction I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
+Content 1. How to get root component Once we have a base component says a PAWN. We usually want to add some mesh to this component. How can we do that?
+// Assume we have a MyPawn.h file UCLASS() class LEARN_API AMyPawn : public APawn{ /* some functions and data members inside this class*/ } // Then in MyPawn.</description>
+    </item>
+    
   </channel>
 </rss>
