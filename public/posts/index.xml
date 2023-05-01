@@ -5,15 +5,16 @@
     <link>https://yz7043.github.io/andyzhu/posts/</link>
     <description>Recent content in Posts on Andy Zhu&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 30 Apr 2023 21:06:39 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 May 2023 11:56:32 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Intro</title>
-      <link>https://yz7043.github.io/andyzhu/posts/intro/</link>
-      <pubDate>Sun, 30 Apr 2023 21:06:39 -0400</pubDate>
+      <title>UE5_basic</title>
+      <link>https://yz7043.github.io/andyzhu/posts/ue5_basic/</link>
+      <pubDate>Mon, 01 May 2023 11:56:32 -0400</pubDate>
       
-      <guid>https://yz7043.github.io/andyzhu/posts/intro/</guid>
-      <description>Hello</description>
+      <guid>https://yz7043.github.io/andyzhu/posts/ue5_basic/</guid>
+      <description>Introduction I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
+Content 1. How to get root component Once we have a base component says a PAWN. We usually want to add some mesh to this component. How can we do that?
+// Assume we have a MyPawn.h file UCLASS() class LEARN_API AMyPawn : public APawn{ /* some functions and data members inside this class*/ } // Then in MyPawn.</description>
     </item>
     
   </channel>
