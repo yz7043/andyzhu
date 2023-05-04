@@ -33,7 +33,7 @@ paginate = 8
   author = "Andy Zhu"
   description = "Welcome to my tech blogs!"
   menu_item_separator = " - "
-  avatar = "https://drive.google.com/uc?export=view&id=1zmwnVHuzhdFQiPnNu2yN04kgb0Lb5AvF"
+  avatar = "/selfie.png"
   [[params.social]]
     icon = "github"
     name = "Github"
