@@ -5,7 +5,18 @@
     <link>https://yz7043.github.io/andyzhu/</link>
     <description>Recent content on Andy Zhu&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 May 2023 19:57:04 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 00:33:24 -0400</lastBuildDate><atom:link href="https://yz7043.github.io/andyzhu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git_Tech</title>
+      <link>https://yz7043.github.io/andyzhu/posts/git_tech/</link>
+      <pubDate>Thu, 04 May 2023 00:33:24 -0400</pubDate>
+      
+      <guid>https://yz7043.github.io/andyzhu/posts/git_tech/</guid>
+      <description>Introduction Here is a memo of some git techniques that can speed up work efficiency.
+Content Duplicate a git repo with all its branch You can find it in Duplicating a repository
+git clone --bare https://github.com/EXAMPLE-USER/OLD-REPOSITORY.git cd OLD-REPOSITORY.git git push --mirror https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git cd .. rm -rf OLD-REPOSITORY.git </description>
+    </item>
+    
     <item>
       <title>UE5_Animation</title>
       <link>https://yz7043.github.io/andyzhu/posts/ue5_animation/</link>

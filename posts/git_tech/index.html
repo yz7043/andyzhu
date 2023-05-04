@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Git_Tech // Andy Zhu&#39;s Blog</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.110.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Andy Zhu" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/andyzhu/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git_Tech"/>
+<meta name="twitter:description" content="Introduction Here is a memo of some git techniques that can speed up work efficiency.
+Content Duplicate a git repo with all its branch You can find it in Duplicating a repository
+git clone --bare https://github.com/EXAMPLE-USER/OLD-REPOSITORY.git cd OLD-REPOSITORY.git git push --mirror https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git cd .. rm -rf OLD-REPOSITORY.git "/>
+
+    <meta property="og:title" content="Git_Tech" />
+<meta property="og:description" content="Introduction Here is a memo of some git techniques that can speed up work efficiency.
+Content Duplicate a git repo with all its branch You can find it in Duplicating a repository
+git clone --bare https://github.com/EXAMPLE-USER/OLD-REPOSITORY.git cd OLD-REPOSITORY.git git push --mirror https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git cd .. rm -rf OLD-REPOSITORY.git " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yz7043.github.io/andyzhu/posts/git_tech/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-04T00:33:24-04:00" />
+<meta property="article:modified_time" content="2023-05-04T00:33:24-04:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://yz7043.github.io/andyzhu/"><img class="app-header-avatar" src="https://drive.google.com/uc?export=view&amp;id=1L37pCrrw-QBS23cfrO-cvqwo4F9LHcRl" alt="Andy Zhu" /></a>
+      <span class="app-header-title">Andy Zhu&#39;s Blog</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/andyzhu/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/andyzhu/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/andyzhu/posts/">Post</a>
+      </nav>
+      <p>Welcome to my tech blogs!</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/yz7043" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://www.linkedin.com/in/yuxiangzhu57/" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>LinkedIn</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Git_Tech</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 4, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="introduction">Introduction</h1>
+<p>Here is a memo of some git techniques that can speed up work efficiency.</p>
+<h1 id="content">Content</h1>
+<h2 id="duplicate-a-git-repo-with-all-its-branch">Duplicate a git repo with all its branch</h2>
+<p>You can find it in <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository">Duplicating a repository</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone --bare https://github.com/EXAMPLE-USER/OLD-REPOSITORY.git
+</span></span><span style="display:flex;"><span>cd OLD-REPOSITORY.git
+</span></span><span style="display:flex;"><span>git push --mirror https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git
+</span></span><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>rm -rf OLD-REPOSITORY.git
+</span></span></code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
