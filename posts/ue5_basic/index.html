@@ -13,20 +13,22 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="UE5_basic"/>
-<meta name="twitter:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
+<meta name="twitter:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5.
 Outlines Axis Map
 Root Component
 Auto Possess
 Pawn Movement
+Character Movement
 Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
 Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key."/>
 
     <meta property="og:title" content="UE5_basic" />
-<meta property="og:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
+<meta property="og:description" content="Introduction I am learning UE5 with C&#43;&#43;. Here is my notes about some fundamental miscellaneous in UE5.
 Outlines Axis Map
 Root Component
 Auto Possess
 Pawn Movement
+Character Movement
 Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
 Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key." />
 <meta property="og:type" content="article" />
@@ -95,12 +97,13 @@ Inside project setting we open Inputtab. Inside Input, we choose Bindings We can
     </header>
     <div class="post-content">
       <h1 id="introduction">Introduction</h1>
-<p>I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.</p>
+<p>I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5.</p>
 <h1 id="outlines">Outlines</h1>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#AxisMap">Axis Map</a></p>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#RootComponent">Root Component</a></p>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#AutoPossess">Auto Possess</a></p>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#PawnMovement">Pawn Movement</a></p>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#CharacterMovement">Character Movement</a></p>
 <h1 id="content">Content</h1>
 <h2 id="AxisMap">Axis Map</h2>
 <ol>
@@ -171,7 +174,7 @@ When we place one pawn blueprint in our world, we are able to control this pawn 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>AutoPossessPlayer <span style="color:#f92672">=</span> EAutoReceiveInput<span style="color:#f92672">::</span>Player0;
 </span></span></code></pre></div></li>
 </ol>
-<h2 id="PawnMovement">Inplement Pawn Movement</h2>
+<h2 id="PawnMovement">Implement Pawn Movement</h2>
 <ol>
 <li>
 <p>Move Forward</p>
@@ -182,7 +185,7 @@ When we place one pawn blueprint in our world, we are able to control this pawn 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>((Controller <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) <span style="color:#f92672">&amp;&amp;</span> Value <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0.0</span>){
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Get Forward direction
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    FVector FW <span style="color:#f92672">=</span> GetActorForwardVector();
-</span></span><span style="display:flex;"><span>    AddMovement(FW, Value);
+</span></span><span style="display:flex;"><span>    AddMovementInput(FW, Value);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
@@ -194,6 +197,32 @@ When we place one pawn blueprint in our world, we are able to control this pawn 
 </ol>
 </li>
 </ol>
+<h2 id="CharacterMovement">Character Movement</h2>
+<p>Character class Movement is similar to our Pawn class.</p>
+<p>Here we wish to introduce more challenging task.</p>
+<ol>
+<li>We want to move towards the direction our controller are facing not the instead of the direction of Mesh</li>
+<li>We want that the character mesh rotate towards to the direction we are moving</li>
+<li>When I move the mouse, I expect the camera move according to the controller not the character (To avoid character facing down to the ground which is against nature)</li>
+</ol>
+<p>For the first challenge, we need to make use of the Rotation Matrix of Controller instead of <code>GetActorForwardVector</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">MoveForward</span>(<span style="color:#66d9ef">float</span> V){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(Contoller <span style="color:#f92672">&amp;&amp;</span> V <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0.f</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the Rotator of controller
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        FRotator ControllerRotation <span style="color:#f92672">=</span> GetControllerRotation();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Because we are moving horizontally, we only care Yaw rotation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    	FRotator YawRotation(<span style="color:#ae81ff">0.f</span>, ControllerRotation, <span style="color:#ae81ff">0.f</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the &#34;forward&#34; direction by rotation matrix
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// EAxis::X -&gt; Move forward or back based on V
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// EAxis::Y -&gt; Move left or right
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        FVector Direction <span style="color:#f92672">=</span> FRotationMatrix(YawRotation).GetAxis(EAxis<span style="color:#f92672">::</span>X);
+</span></span><span style="display:flex;"><span>    	AddMovementInput(Direction, V);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Then, how do we enable the character to rotate towards where it is moving?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>GetCharacterMovement()<span style="color:#f92672">-&gt;</span>bOrientRotationToMovement <span style="color:#f92672">=</span> true;
+</span></span></code></pre></div><p>Third task.</p>
+<p>Check <code>Use Pawn Control Rotation</code> for the boom</p>
 
     </div>
     <div class="post-footer">
