@@ -1,12 +1,12 @@
 ---
 title: "UE5_basic"
 date: 2023-05-01T11:56:32-04:00
-draft: False
+draft: false
 ---
 
 # Introduction
 
-I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5 that can help us to speed up.
+I am learning UE5 with C++. Here is my notes about some fundamental miscellaneous in UE5.
 
 # Outlines
 
@@ -17,6 +17,8 @@ I am learning UE5 with C++. Here is my notes about some fundamental miscellaneou
 [Auto Possess]({{< ref "UE5_basic.md#AutoPossess" >}})
 
 [Pawn Movement]({{< ref "UE5_basic.md#PawnMovement" >}})
+
+[Character Movement]({{< ref "UE5_basic.md#CharacterMovement" >}})
 
 # Content
 
@@ -91,7 +93,7 @@ AMyPawn::AMyPawn{
     AutoPossessPlayer = EAutoReceiveInput::Player0;
     ```
 
-## Inplement Pawn Movement {#PawnMovement}
+## Implement Pawn Movement {#PawnMovement}
 
 1. Move Forward
 
@@ -103,7 +105,7 @@ AMyPawn::AMyPawn{
    	if((Controller != nullptr) && Value != 0.0){
        // Get Forward direction
        FVector FW = GetActorForwardVector();
-       AddMovement(FW, Value);
+       AddMovementInput(FW, Value);
      }
    }
    ```
@@ -111,3 +113,41 @@ AMyPawn::AMyPawn{
 2. Add movement component in our Pawn Blueprint
    1. Go to MyPawn blueprint
    2. Click + button located at the upper left corner and add a `FloatingPawnMovement`
+
+## Character Movement {#CharacterMovement}
+
+Character class Movement is similar to our Pawn class. 
+
+Here we wish to introduce more challenging task.
+
+1. We want to move towards the direction our controller are facing not the instead of the direction of Mesh
+2. We want that the character mesh rotate towards to the direction we are moving
+3. When I move the mouse, I expect the camera move according to the controller not the character (To avoid character facing down to the ground which is against nature)
+
+For the first challenge, we need to make use of the Rotation Matrix of Controller instead of `GetActorForwardVector`
+
+```C++
+void MoveForward(float V){
+    if(Contoller && V != 0.f){
+        // Get the Rotator of controller
+        FRotator ControllerRotation = GetControllerRotation();
+        // Because we are moving horizontally, we only care Yaw rotation
+    	FRotator YawRotation(0.f, ControllerRotation, 0.f);
+        // Get the "forward" direction by rotation matrix
+        // EAxis::X -> Move forward or back based on V
+        // EAxis::Y -> Move left or right
+        FVector Direction = FRotationMatrix(YawRotation).GetAxis(EAxis::X);
+    	AddMovementInput(Direction, V);
+    }
+}
+```
+
+Then, how do we enable the character to rotate towards where it is moving?
+
+```C++
+GetCharacterMovement()->bOrientRotationToMovement = true;
+```
+
+Third task.
+
+Check `Use Pawn Control Rotation` for the boom
