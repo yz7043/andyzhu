@@ -10,9 +10,9 @@ I am learning UE5 with C++. Here is my notes about some Animation in UE5.
 
 # Outlines
 
-[Basic Terms]({{<ref="UE5_Animation.md#BasicTerm">}})
+[Basic Terms]({{<ref "UE5_Animation.md#BasicTerm">}})
 
-[Add Variables To Event Graph]({{<ref="UE5_Animation.md#AddVariables">}})
+[Add Variables To Event Graph]({{<ref "UE5_Animation.md#AddVariables">}})
 
 # Content
 
