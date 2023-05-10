@@ -19,6 +19,7 @@ Root Component
 Auto Possess
 Pawn Movement
 Character Movement
+Collision
 Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
 Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key."/>
 
@@ -29,6 +30,7 @@ Root Component
 Auto Possess
 Pawn Movement
 Character Movement
+Collision
 Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
 Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &lsquo;W&rsquo; key." />
 <meta property="og:type" content="article" />
@@ -88,7 +90,7 @@ Inside project setting we open Inputtab. Inside Input, we choose Bindings We can
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          4 min read
         </div>
       </div>
     </header>
@@ -101,6 +103,7 @@ Inside project setting we open Inputtab. Inside Input, we choose Bindings We can
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#AutoPossess">Auto Possess</a></p>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#PawnMovement">Pawn Movement</a></p>
 <p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#CharacterMovement">Character Movement</a></p>
+<p><a href="https://yz7043.github.io/andyzhu/posts/ue5_basic/#Collision">Collision</a></p>
 <h1 id="content">Content</h1>
 <h2 id="AxisMap">Axis Map</h2>
 <ol>
@@ -220,6 +223,50 @@ When we place one pawn blueprint in our world, we are able to control this pawn 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>GetCharacterMovement()<span style="color:#f92672">-&gt;</span>bOrientRotationToMovement <span style="color:#f92672">=</span> true;
 </span></span></code></pre></div><p>Third task.</p>
 <p>Check <code>Use Pawn Control Rotation</code> for the boom</p>
+<h2 id="Collision">Collision</h2>
+<ol>
+<li>
+<p>Collision Enabled Options</p>
+<ol>
+<li>No Collision: Literally no collision</li>
+<li>Query Only: No physical properties. But queries like ray detection and Inverse Kinematics will work</li>
+<li>Physics Only: Only block the object(Physical properties)</li>
+<li>Query and Physics</li>
+</ol>
+</li>
+<li>
+<p>Collision Event</p>
+<ol>
+<li>
+<p>UE5 is use Observer Pattern to handle Collision Event</p>
+</li>
+<li>
+<p>One example is in <code>UPrimitiveComponent</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>vodi AMyItem<span style="color:#f92672">::</span>BeginPlay()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Super<span style="color:#f92672">::</span>BeginPlay();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// We will register the callback functio here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// This sphere is a component we created
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CollisionSphere<span style="color:#f92672">-&gt;</span>OnComponentBeginOverlap.AddDynamic(
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>, <span style="color:#f92672">&amp;</span>AMyITeam<span style="color:#f92672">::</span>OnSphereOverlap);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> AMyItem<span style="color:#f92672">::</span>OnSphereOverlap(
+</span></span><span style="display:flex;"><span>    UPrimitiveComponent<span style="color:#f92672">*</span> OverlappedComponent,
+</span></span><span style="display:flex;"><span>    AActor<span style="color:#f92672">*</span> OtherActor, 
+</span></span><span style="display:flex;"><span>    UPrimitiveComponent<span style="color:#f92672">*</span> OtherComp, 
+</span></span><span style="display:flex;"><span>    int32 OtherBodyIndex, 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> bFromSweep, 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> FHitResult<span style="color:#f92672">&amp;</span> SweepResult)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// It is Just an callback function we are going to register
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// You code for on sphere is overlap occurs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ol>
 
     </div>
     <div class="post-footer">

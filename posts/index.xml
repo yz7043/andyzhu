@@ -52,6 +52,7 @@ Root Component
 Auto Possess
 Pawn Movement
 Character Movement
+Collision
 Content Axis Map Add the mapping to project settings so that our input can be caught and the callback function can be executed every frame
 Inside project setting we open Inputtab. Inside Input, we choose Bindings We can add one function name, for example, MoveForward Then we need to add a binded key/keys to this function, for example, &amp;lsquo;W&amp;rsquo; key.</description>
     </item>
