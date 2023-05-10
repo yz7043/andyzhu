@@ -20,6 +20,8 @@ I am learning UE5 with C++. Here is my notes about some fundamental miscellaneou
 
 [Character Movement]({{< ref "UE5_basic.md#CharacterMovement" >}})
 
+[Collision]({{<ref "UE5_basic.md#Collision">}})
+
 # Content
 
 ## Axis Map{#AxisMap}
@@ -151,3 +153,44 @@ GetCharacterMovement()->bOrientRotationToMovement = true;
 Third task.
 
 Check `Use Pawn Control Rotation` for the boom
+
+## Collision {#Collision}
+
+1. Collision Enabled Options
+
+   1. No Collision: Literally no collision
+   2. Query Only: No physical properties. But queries like ray detection and Inverse Kinematics will work
+   3. Physics Only: Only block the object(Physical properties)
+   4. Query and Physics
+
+2. Collision Event
+
+   1. UE5 is use Observer Pattern to handle Collision Event
+
+   2. One example is in `UPrimitiveComponent`
+
+      ```C++
+      vodi AMyItem::BeginPlay()
+      {
+          Super::BeginPlay();
+          // We will register the callback functio here
+          // This sphere is a component we created
+          CollisionSphere->OnComponentBeginOverlap.AddDynamic(
+              this, &AMyITeam::OnSphereOverlap);
+      }
+      
+      void AMyItem::OnSphereOverlap(
+          UPrimitiveComponent* OverlappedComponent,
+          AActor* OtherActor, 
+          UPrimitiveComponent* OtherComp, 
+          int32 OtherBodyIndex, 
+          bool bFromSweep, 
+          const FHitResult& SweepResult)
+      {
+          // It is Just an callback function we are going to register
+      	// You code for on sphere is overlap occurs
+          // ...
+      }
+      ```
+
+      
